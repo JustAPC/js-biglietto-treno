@@ -7,16 +7,19 @@ età = parseInt (età);
 console.log("L'utente ha " + età + " anni");
 
 let prezzoBase = (km * 0.21);
-console.log("Il prezzo del biglietto è di " + prezzoBase + "€");
+console.log("Il prezzo base del biglietto è di " + prezzoBase + "€");
+
+let prezzoScontato = 0;
 
 if (età <= 17) {
     console.log ("Minorenne")
-} else {
-    console.log ("Maggiorenne")
-}
-
-if (età >= 65) {
+    prezzoScontato = prezzoBase - (prezzoBase * 0.2);
+    document.getElementById("prezzo-scontato").innerHTML = "Il prezzo del tuo biglietto scontato è di " + prezzoScontato.toFixed(2) + "	&#8364;" 
+} else if (età >= 65){
     console.log ("Over 65")
+    prezzoScontato = prezzoBase - (prezzoBase * 0.4);
+    document.getElementById("prezzo-scontato").innerHTML = "Il prezzo del tuo biglietto scontato è di " + prezzoScontato.toFixed(2) + "	&#8364;" 
 } else {
-    console.log ("Under 65")
+    console.log ("Range medio")
+    document.getElementById("prezzo-pieno").innerHTML = "Il prezzo del tuo biglietto è di " + prezzoBase.toFixed(2) + "	&#8364;"
 }
